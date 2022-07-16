@@ -24,7 +24,7 @@ function findFilmes(){
 
 }
 
-//verificando as salas já cadastradas
+//verificar as salas já cadastradas
 var salaOcupada = []
 //salaOcupada.push(filme.sala);
 console.log(salaOcupada);
