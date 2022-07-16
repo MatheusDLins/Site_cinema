@@ -1,0 +1,30 @@
+.cardBox
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px
+}
+
+.cardBox .card
+{
+     position: relative;
+     background: rgb(212, 214, 226);
+     padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     cursor: pointer;
+
+     margin-left: 10%;
+     margin-right: 20%;
+
+}
+
+.cardBox .card .numbers1
+{
+    position: relative;
+    font-size: 2em;
+    font-weight: 500;
+}
