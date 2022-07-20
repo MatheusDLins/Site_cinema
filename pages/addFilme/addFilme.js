@@ -22,6 +22,8 @@ function findFilmes(){
         })
         
 }
+
+
 //lista com as salas em uso
 var salaOcupada = [];
 findFilmes()
@@ -73,6 +75,7 @@ function fillFilmeScreen(filme){
     form.sinopse().value = filme.sinopse;
     form.duracao().value = filme.duracao;
     form.image().value = filme.image;
+    //form.png().value = filme.png;
     //adiciona a sala atual a lista quando atualizado o filme
     salaAtual.push(filme.sala)
 
@@ -124,15 +127,21 @@ function update(filme){
 
 
 function createFilme(){
+
+console.log(imagem)
     return{
+        
         idx: form.idx().value,
         sala: form.sala().value,
         titulo: form.titulo().value,
         sinopse: form.sinopse().value,
         duracao: form.duracao().value,
-        image: form.image().value 
+        image: form.image().value,
+        png: imagem[0]
     }
+
 }
+
 
 function onChangeValue(){
     const idx = form.idx().value;
@@ -141,7 +150,7 @@ function onChangeValue(){
     
 
     //valo menor ou igual a zero
-    form.valueLessOrEqualToZeroError().style.display = idx<=0 ? 'block' : 'none';
+    form.valueLessOrEqualToZeroError().style.display = idx<0 ? 'block' : 'none';
     
 
     //valor maior que seis
@@ -164,6 +173,8 @@ function onChangeSalaType(){
     console.log(!salaType);
 
     toggleSaveButtonDisable();
+
+    
 }
 
 //função para ativar o botão
@@ -175,7 +186,7 @@ function toggleSaveButtonDisable(){
 function isFormValid(){
 
     const idx = form.idx().value;
-    if (!idx || idx < 0 || idx > 6 || idx == 0)  {
+    if (!idx || idx < 0 || idx > 6)  {
         return false;
     }
 
@@ -215,6 +226,8 @@ const form = {
     sinopse: () => document.getElementById('sinopse'),
     duracao: () => document.getElementById('duracao'),
     image: () => document.getElementById('image'),
+    png: () => document.getElementById('png'),
+    
 
     valueRequiredError: () => document.getElementById('value-required-error'),
     valueLessOrEqualToZeroError: () => document.getElementById('value-less-or-equal-to-zero-error'),
@@ -225,4 +238,30 @@ const form = {
     salaEmUso: () => document.getElementById('sala-em-uso'),
 
     saveButton: () => document.getElementById('save-button'),
+
+    
+
+
+
 }
+
+var imagem = []
+
+window.addEventListener('load', function() {
+    document.querySelector('input[type="file"]').addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+            var img = document.querySelector('img');
+            img.onload = () => {
+                URL.revokeObjectURL(img.src);  // no longer needed, free memory
+            }
+  
+            img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+            console.log(img.src);
+            imagem.push(img.src);
+            console.log(imagem);
+        }
+    });
+  });
+      
+
+

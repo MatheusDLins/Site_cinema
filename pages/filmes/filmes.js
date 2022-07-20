@@ -47,14 +47,14 @@ function addFilme(filmes){
         })
         
         //botão de remover filme
-        const deleteButton = document.createElement('button');
-        deleteButton.innerHTML = "Remover";
-        deleteButton.classList.add('outline', 'danger');
-        deleteButton.addEventListener('click', event => {
-            event.stopPropagation();
-            askRemoveFilme(filme);
-        })
-        li.appendChild(deleteButton);
+        //const deleteButton = document.createElement('button');
+        //deleteButton.innerHTML = "Remover";
+        //deleteButton.classList.add('outline', 'danger');
+        //deleteButton.addEventListener('click', event => {
+            //event.stopPropagation();
+            //askRemoveFilme(filme);
+        //})
+        //li.appendChild(deleteButton);
 
 
 
@@ -81,6 +81,10 @@ function addFilme(filmes){
         const image = document.createElement('p');
         image.innerHTML = filme.image;
         li.appendChild(image);
+        
+        const png = document.createElement('p');
+        png.innerHTML = filme.png;
+        li.appendChild(png);
 
         //add sinopse
         const sinopse = document.createElement('p');

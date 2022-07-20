@@ -1,11 +1,12 @@
 body{
     height: 100vh;
-    background: #23232e;
+    background: rgb(59, 59, 131);
 }
 
 ol{
     list-style-type: none;
-    padding: 0;
+    margin: 2em 2em;
+    border-radius: 20px;
 }
 
 ol li{
@@ -13,6 +14,8 @@ ol li{
     background: white;
     padding: 8px 16px;
     border-bottom: 1px solid gray;
+    margin: 2px;
+    border-radius: 20px;
     
 }
 
